@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Factory, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/Motion";
-import { process, stats, whyChooseUs } from "@/lib/siteData";
+import { aboutContent, process, stats, whyChooseUs } from "@/lib/siteData";
 
 export const metadata: Metadata = {
   title: "About",
@@ -25,8 +25,13 @@ export default function AboutPage() {
         </Reveal>
         <Reveal delay={0.12}>
           <Factory className="h-12 w-12 text-gold" />
-          <h2 className="heading-lg mt-5 text-primary">Engineered quality for professional buyers.</h2>
-          <p className="mt-5 text-base leading-8 text-black/62">Petrel manufactures brass bath fittings, bathroom accessories, internal fittings, faucet components, and OEM assemblies with a focus on reliability, finish confidence, and production consistency.</p>
+          <p className="eyebrow mt-5">{aboutContent.eyebrow}</p>
+          <h2 className="about-heading mt-4 text-primary">{aboutContent.title}</h2>
+          <div className="mt-5 space-y-4 text-base leading-8 text-black/62">
+            {aboutContent.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           <div className="mt-7 grid grid-cols-2 gap-3">
             {stats.map((stat) => (
               <div className="elegant-card rounded-2xl p-4" key={stat.label}>

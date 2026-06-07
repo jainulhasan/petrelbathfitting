@@ -20,11 +20,11 @@ export default function CataloguePage() {
           <p className="body-lg mt-6 max-w-2xl text-white/68">Download product catalogues, brochures, and collection references for specification, sourcing, and dealer conversations.</p>
         </div>
       </section>
-      <section className="section-shell section-padding grid gap-6 md:grid-cols-3">
+      <section className="section-shell section-padding grid gap-6 md:grid-cols-2">
         {catalogues.map((item, index) => (
           <Reveal delay={index * 0.08} key={item.title}>
             <article className="elegant-card group rounded-[1.5rem]">
-              <img src={`/assets/${item.cover}`} alt={item.title} className="image-lift h-64 w-full object-cover" />
+              <img src={`/assets/${item.cover}`} alt={item.title} className="image-lift h-80 w-full object-cover object-top" />
               <div className="p-6">
                 <h2 className="text-xl font-semibold text-primary">{item.title}</h2>
                 <a href={`/assets/${item.file}`} target="_blank" rel="noreferrer" className="btn-gold mt-6">

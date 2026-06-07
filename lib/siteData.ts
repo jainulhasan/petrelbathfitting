@@ -71,13 +71,23 @@ export const trustStats = [
 ];
 
 export const whyChooseUs = [
-  { title: "Engineering Excellence", icon: Gauge, copy: "Tolerances, flow behavior, and assembly quality refined for professional applications." },
-  { title: "Premium Brass Quality", icon: Gem, copy: "Material-first manufacturing for fittings that feel substantial and perform reliably." },
-  { title: "Long Product Life", icon: ShieldCheck, copy: "Designed for repeat usage, stable fitment, and confidence after installation." },
-  { title: "Precision Manufacturing", icon: Factory, copy: "Process-led production with inspection discipline at each critical stage." },
-  { title: "Nationwide Distribution", icon: Truck, copy: "Dealer-ready product availability for builders, retailers, and project buyers." },
-  { title: "Customer Satisfaction", icon: BadgeCheck, copy: "Practical support and dependable products for long-term business relationships." }
+  { title: "Highest Quality Products", icon: Gem, copy: "Petrel is committed to manufacturing brass internal fittings and bath accessories with dependable material quality and refined finishing." },
+  { title: "Creative Design Value", icon: Sparkles, copy: "Products are developed to deliver practical performance, attractive presentation, and exceptional value for residential and commercial markets." },
+  { title: "Rigorous Quality Control", icon: ShieldCheck, copy: "Each stage is subjected to quality checks so fittings meet brand requirements before they reach dealers, builders, and buyers." },
+  { title: "Experienced Craftsmanship", icon: Factory, copy: "Every Petrel creation is shaped by years of manufacturing experience, attention to detail, and disciplined brass component production." },
+  { title: "Customer Focus", icon: BadgeCheck, copy: "The business is built around customer satisfaction, responsive support, and long-term relationships across the bath fittings market." },
+  { title: "India & Export Ready", icon: Truck, copy: "With operations across India and outside India, Petrel supports dealers, projects, and sourcing partners with reliable product availability." }
 ];
+
+export const aboutContent = {
+  eyebrow: "Established in 2003",
+  title: "A glimpse of our company.",
+  paragraphs: [
+    "Pal Enterprise resulted from the duo Patel brothers, Mr. Ashok Vadodaria and Mr. Prakash Vadodaria. For more than 20 years, the enterprise has grown as a manufacturer of bathroom fittings and accessories for residential and commercial markets.",
+    "With operations across India and outside India, Pal Enterprise provides bathroom fittings and accessories under its Petrel brand. Each stage is subjected to rigorous quality control to meet the requirements of the brand.",
+    "Our mission is to provide products of the highest quality, creative design, and exceptional value. We meet these goals through attention to detail, high-performance teams across the business, and a constant focus on customers."
+  ]
+};
 
 export const process = [
   { title: "Design", copy: "Product intent, application needs, and finish expectations are defined." },
@@ -138,19 +148,58 @@ export const testimonials = [
 export const gallery = [
   "company-main.jpg",
   "our-comapny.jpg",
+  "our-comapny1.jpg",
+  "our-comapny2.jpg",
   "our-comapny3.jpg",
+  "our-comapny4.jpg",
   "why-choose-us-1.jpg",
   "why-choose-us-2.jpg",
-  "petrelbathfitting.jpg",
+  "why-choose-us.jpg",
   "1.jpg",
   "1-1.jpg",
-  "1-2.jpg"
+  "1-2.jpg",
+  "1-3.jpg",
+  "1-4.jpg",
+  "2.jpg",
+  "2-1.jpg",
+  "2-2.jpg",
+  "2-3.jpg",
+  "2-4.jpg",
+  "3.jpg",
+  "3-1.jpg",
+  "3-2.jpg",
+  "3-3.jpg",
+  "3-4.jpg",
+  "4.jpg",
+  "4-1.jpg",
+  "4-2.jpg",
+  "4-3.jpg",
+  "4-4.jpg",
+  "5.jpg",
+  "5-1.jpg",
+  "5-2.jpg",
+  "5-3.jpg",
+  "5-4.jpg",
+  "post1.jpg",
+  "post2.jpg",
+  "post3.jpg",
+  "post4.jpg",
+  "post5.jpg",
+  "post6.jpg",
+  "post7.jpg",
+  "post8.jpg",
+  "post9.jpg",
+  "post10.jpg",
+  "post11.jpg",
+  "post12.jpg",
+  "post13.jpg",
+  "post14.jpg",
+  "post15.jpg"
 ];
 
 export const partnerLogos = ["ARCHITECTS", "BUILDERS", "DEALERS", "EXPORT", "OEM", "INTERIORS", "PROJECTS", "BATHWARE"];
 
 export const catalogues = [
-  { title: "Master Catalogue", cover: "PETREL-001-pdf.jpg", file: "PETREL-001.pdf" },
-  { title: "Accessories Collection", cover: "Petrel-Catalogue-pdf.jpg", file: "Petrel-Catalogue.pdf" },
-  { title: "Petrel Brochure", cover: "Petrel-Brochure-pdf.jpg", file: "Petrel-Brochure.pdf" }
+  { title: "Petrel Master Catalogue", cover: "PETREL-001-pdf.jpg", file: "PETREL-001.pdf" },
+  { title: "Petrel Product Catalogue", cover: "Petrel-Catalogue-pdf.jpg", file: "Petrel-Catalogue.pdf" }
 ];

@@ -43,32 +43,39 @@ export default function TestimonialsPage() {
           <p className="eyebrow">What Clients Say</p>
           <h2 className="heading-lg mt-4 max-w-4xl text-primary">Dependable products, strong response, and long-term sourcing value.</h2>
         </Reveal>
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-5">
           {testimonials.map((item, index) => (
             <Reveal delay={index * 0.06} key={item.name}>
-              <article className="elegant-card h-full rounded-[1.45rem] p-6 md:p-7">
-                <div className="mb-7 flex items-start justify-between gap-5">
-                  <div className="flex items-center gap-4">
+              <article className="elegant-card rounded-[1.45rem] p-6 md:grid md:grid-cols-[280px_1fr] md:items-center md:gap-8 md:p-7">
+                <div className="flex items-start justify-between gap-5 border-b border-primary/8 pb-6 md:block md:border-b-0 md:border-r md:pb-0 md:pr-8">
+                  <div className="flex items-center gap-4 md:block">
                     {item.image ? (
-                      <img src={`/assets/${item.image}`} alt={item.name} className="h-16 w-16 rounded-full border border-primary/8 object-cover shadow-luxury" />
+                      <img src={`/assets/${item.image}`} alt={item.name} className="h-16 w-16 rounded-full border border-primary/8 object-cover shadow-luxury md:h-20 md:w-20" />
                     ) : (
-                      <span className="grid h-16 w-16 place-items-center rounded-full border border-primary/8 bg-primary/[0.04] text-primary/45 shadow-luxury">
-                        <UserRound className="h-7 w-7" />
+                      <span className="grid h-16 w-16 place-items-center rounded-full border border-primary/8 bg-primary/[0.04] text-primary/45 shadow-luxury md:h-20 md:w-20">
+                        <UserRound className="h-7 w-7 md:h-8 md:w-8" />
                       </span>
                     )}
-                    <span>
-                      <strong className="block text-lg text-primary">{item.name}</strong>
+                    <span className="md:mt-5 md:block">
+                      <strong className="block text-lg font-semibold text-primary">{item.name}</strong>
                       <span className="text-sm text-black/45">{item.role}</span>
+                      <span className="mt-4 hidden gap-1 text-gold md:flex">
+                        {Array.from({ length: 5 }).map((_, starIndex) => (
+                          <Star className="h-4 w-4 fill-current" key={starIndex} />
+                        ))}
+                      </span>
                     </span>
                   </div>
                   <Quote className="h-9 w-9 text-gold/65" />
                 </div>
-                <div className="mb-5 flex gap-1 text-gold">
+                <div className="mt-5 flex gap-1 text-gold md:hidden">
                   {Array.from({ length: 5 }).map((_, starIndex) => (
                     <Star className="h-4 w-4 fill-current" key={starIndex} />
                   ))}
                 </div>
-                <p className="text-base leading-8 text-black/66">“{item.quote}”</p>
+                <div className="mt-5 md:mt-0">
+                  <p className="text-lg leading-9 text-black/66">“{item.quote}”</p>
+                </div>
               </article>
             </Reveal>
           ))}

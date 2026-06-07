@@ -1,15 +1,10 @@
 "use client";
 
-import clsx from "clsx";
 import { ArrowUpRight, BadgeCheck } from "lucide-react";
-import { useMemo, useState } from "react";
 import { motion, Reveal } from "@/components/Motion";
-import { categories, products, type ProductCategory } from "@/lib/siteData";
+import { products } from "@/lib/siteData";
 
 export default function ProductShowcase() {
-  const [active, setActive] = useState<ProductCategory | "All">("All");
-  const filtered = useMemo(() => (active === "All" ? products : products.filter((product) => product.category === active)), [active]);
-
   return (
     <section id="products" className="section-shell section-padding">
       <Reveal className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
@@ -17,23 +12,9 @@ export default function ProductShowcase() {
           <p className="eyebrow">Product Showcase</p>
           <h2 className="heading-lg mt-4 max-w-4xl text-primary">A refined range for premium bathware businesses.</h2>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {(["All", ...categories] as Array<ProductCategory | "All">).map((category) => (
-            <button
-              className={clsx(
-                "rounded-full border px-3.5 py-2 text-xs font-semibold transition-luxury",
-                active === category ? "border-primary bg-primary text-white shadow-luxury" : "border-primary/10 bg-white text-primary/70 hover:border-gold hover:text-primary"
-              )}
-              onClick={() => setActive(category)}
-              key={category}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
       </Reveal>
       <motion.div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" layout>
-        {filtered.map((product, index) => (
+        {products.map((product, index) => (
           <motion.article
             className="elegant-card group rounded-[1.35rem]"
             key={product.title}

@@ -95,6 +95,22 @@ video {
   line-height: 1.04;
 }
 
+.about-heading {
+  font-family: var(--font-display, Georgia), "Times New Roman", serif;
+  font-size: clamp(2rem, 3.35vw, 3.85rem);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.04;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .about-heading {
+    font-size: clamp(1.85rem, 8.2vw, 2.55rem);
+    white-space: normal;
+  }
+}
+
 .heading-md {
   font-family: var(--font-display, Georgia), "Times New Roman", serif;
   font-size: clamp(1.75rem, 2.6vw, 2.75rem);
@@ -292,19 +308,73 @@ video {
   animation: marquee 32s linear infinite;
 }
 
-.testimonial-rail {
-  display: flex;
-  gap: 1.25rem;
-  margin-inline: calc((100vw - min(1180px, calc(100vw - 40px))) / -2);
-  overflow-x: auto;
-  padding: 0 calc((100vw - min(1180px, calc(100vw - 40px))) / 2) 1rem;
-  scroll-padding-inline: calc((100vw - min(1180px, calc(100vw - 40px))) / 2);
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+.testimonial-section {
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #FAFAFA, #ffffff 46%, #f4f7fb),
+    radial-gradient(circle at 12% 10%, rgba(212, 175, 55, 0.12), transparent 26%);
 }
 
-.testimonial-rail::-webkit-scrollbar {
-  display: none;
+.testimonial-stack {
+  position: relative;
+  display: grid;
+  min-height: 390px;
+  place-items: center;
+  overflow: hidden;
+}
+
+.testimonial-stack-card {
+  position: absolute;
+  width: min(680px, 88vw);
+  min-height: 335px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(11, 31, 58, 0.09);
+  border-radius: 1.45rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.92)),
+    radial-gradient(circle at 92% 0, rgba(212, 175, 55, 0.14), transparent 30%);
+  box-shadow: 0 28px 88px rgba(11, 31, 58, 0.12);
+  padding: clamp(1.35rem, 3vw, 2.35rem);
+  transform-origin: center;
+}
+
+.testimonial-stack-card::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 8%, rgba(212, 175, 55, 0.12), transparent 34%),
+    radial-gradient(circle at 0 100%, rgba(30, 77, 143, 0.07), transparent 34%);
+  opacity: 0.7;
+  content: "";
+}
+
+.testimonial-stack-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-index {
+  position: absolute;
+  right: 1.35rem;
+  bottom: 1.1rem;
+  color: rgba(11, 31, 58, 0.055);
+  font-family: var(--font-display, Georgia), "Times New Roman", serif;
+  font-size: 5.2rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .testimonial-stack {
+    min-height: 440px;
+    overflow: visible;
+  }
+
+  .testimonial-stack-card {
+    width: 100%;
+  }
 }
 
 .testimonial-control {
@@ -337,32 +407,33 @@ video {
 }
 
 .hero-bg-image {
-  opacity: 0.54;
-  object-position: center 42%;
+  opacity: 0.5;
+  object-position: 52% 48%;
+  filter: saturate(1.04) contrast(1.03);
 }
 
 .hero-bg-drift {
-  animation: hero-bg-drift 20s ease-in-out infinite alternate;
+  animation: hero-bg-drift 22s cubic-bezier(0.45, 0, 0.2, 1) infinite alternate;
   transform-origin: center;
 }
 
 .hero-light-sweep {
   background:
-    radial-gradient(circle at 72% 22%, rgba(212, 175, 55, 0.28), transparent 25%),
-    linear-gradient(112deg, transparent 16%, rgba(255, 255, 255, 0.14), transparent 44%);
-  opacity: 0.86;
-  animation: hero-light-sweep 8s ease-in-out infinite;
+    radial-gradient(circle at 72% 24%, rgba(212, 175, 55, 0.16), transparent 24%),
+    linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.075), transparent 46%);
+  opacity: 0.7;
+  animation: hero-light-sweep 10s ease-in-out infinite;
 }
 
 .hero-precision-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
   background-position: center;
-  background-size: 74px 74px;
-  mask-image: radial-gradient(circle at 64% 48%, black, transparent 68%);
-  opacity: 0.38;
-  animation: hero-grid-drift 16s linear infinite;
+  background-size: 104px 104px;
+  mask-image: radial-gradient(circle at 66% 48%, black, transparent 62%);
+  opacity: 0.14;
+  animation: hero-grid-drift 28s linear infinite;
 }
 
 .hero-gold-scan {
@@ -370,34 +441,18 @@ video {
   background:
     linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.16), transparent),
     linear-gradient(90deg, transparent 8%, rgba(255, 255, 255, 0.08), transparent 56%);
-  opacity: 0.42;
+  opacity: 0.28;
   transform: translateY(-100%);
   animation: hero-gold-scan 8.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .hero-depth-vignette {
   background:
-    radial-gradient(circle at 78% 28%, rgba(212, 175, 55, 0.18), transparent 24%),
-    radial-gradient(circle at 18% 70%, rgba(30, 77, 143, 0.3), transparent 32%),
+    radial-gradient(circle at 78% 28%, rgba(212, 175, 55, 0.1), transparent 24%),
+    radial-gradient(circle at 18% 70%, rgba(30, 77, 143, 0.2), transparent 32%),
     linear-gradient(90deg, rgba(3, 10, 22, 0.46), transparent 58%);
-  opacity: 0.86;
+  opacity: 0.7;
   animation: hero-depth-pulse 12s ease-in-out infinite;
-}
-
-.hero-luxury-motion {
-  background:
-    linear-gradient(125deg, transparent 0%, transparent 30%, rgba(212, 175, 55, 0.18) 45%, transparent 60%, transparent 100%),
-    radial-gradient(circle at 58% 44%, rgba(255, 255, 255, 0.1), transparent 24%);
-  mix-blend-mode: screen;
-  opacity: 0.46;
-  transform: translateX(-16%);
-  animation: hero-luxury-motion 10s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-}
-
-.hero-section-blend {
-  height: 170px;
-  background: linear-gradient(180deg, rgba(250, 250, 250, 0), rgba(246, 248, 251, 0.16) 34%, rgba(250, 250, 250, 0.72) 78%, #FAFAFA 100%);
-  pointer-events: none;
 }
 
 .hero-orbit {
@@ -405,11 +460,11 @@ video {
 }
 
 .hero-product-shell {
-  transform: translateY(26px);
+  transform: translateY(34px);
 }
 
 .hero-product-panel {
-  max-width: 390px;
+  max-width: 285px;
   margin-left: auto;
   transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1), border-color 850ms cubic-bezier(0.22, 1, 0.36, 1), background 850ms ease;
 }
@@ -432,8 +487,8 @@ video {
 
 .hero-product-stage {
   position: relative;
-  height: min(360px, 50vh);
-  min-height: 285px;
+  height: min(265px, 37vh);
+  min-height: 220px;
 }
 
 .hero-product-stage::before {
@@ -453,13 +508,17 @@ video {
   position: absolute;
   left: 50%;
   bottom: 2.65rem;
-  max-height: 300px;
-  max-width: 78%;
+  max-height: 210px;
+  max-width: 70%;
   object-fit: contain;
   opacity: 0;
   transform: translate3d(-50%, 14px, 0) scale(0.965);
   filter: saturate(1.02) contrast(1.02);
-  animation: hero-product-rotate 18s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: hero-product-rotate 18s ease-in-out infinite;
+}
+
+.about-transition {
+  background: linear-gradient(180deg, rgba(11, 31, 58, 0.1) 0%, rgba(250, 250, 250, 0.9) 76px, #FAFAFA 170px);
 }
 
 .hero-product-slide:nth-child(2) {
@@ -472,10 +531,6 @@ video {
 
 .hero-product-panel:hover .hero-product-slide {
   filter: saturate(1.06) contrast(1.04);
-}
-
-.hero-progress {
-  animation: hero-progress 5.5s ease-in-out infinite;
 }
 
 .video-feature {
@@ -549,10 +604,14 @@ video {
 
 @keyframes hero-bg-drift {
   from {
-    transform: scale(1.01) translate3d(0, 0, 0);
+    filter: saturate(1.02) contrast(1.02) brightness(0.96);
+    object-position: 49% 47%;
+    transform: scale(1.006) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1.035) translate3d(-0.8%, -0.45%, 0);
+    filter: saturate(1.1) contrast(1.06) brightness(1.03);
+    object-position: 56% 50%;
+    transform: scale(1.045) translate3d(-1.2%, -0.55%, 0);
   }
 }
 
@@ -573,7 +632,7 @@ video {
     background-position: 0 0;
   }
   to {
-    background-position: 88px 88px;
+    background-position: 104px 104px;
   }
 }
 
@@ -645,38 +704,24 @@ video {
 
 @keyframes hero-product-rotate {
   0% {
+    opacity: 0;
+    transform: translate3d(-50%, 14px, 0) scale(0.965);
+  }
+  7% {
     opacity: 1;
     transform: translate3d(-50%, 0, 0) scale(1);
   }
   24% {
     opacity: 1;
-    transform: translate3d(-50%, -4px, 0) scale(1.014);
+    transform: translate3d(-50%, -2px, 0) scale(1.008);
   }
-  36% {
+  33% {
     opacity: 0;
-    transform: translate3d(-50%, -12px, 0) scale(1.026);
+    transform: translate3d(-50%, -10px, 0) scale(1.018);
   }
   100% {
     opacity: 0;
-    transform: translate3d(-50%, -12px, 0) scale(1.026);
-  }
-}
-
-@keyframes hero-progress {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  18% {
-    opacity: 1;
-  }
-  64% {
-    width: 100%;
-    opacity: 1;
-  }
-  100% {
-    width: 100%;
-    opacity: 0;
+    transform: translate3d(-50%, -10px, 0) scale(1.018);
   }
 }
 
