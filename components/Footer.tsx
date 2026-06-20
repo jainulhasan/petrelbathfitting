@@ -30,13 +30,13 @@ export default function Footer() {
           </div>
         </div>
         <FooterColumn title="Company" links={quickLinks} />
-        <FooterColumn title="Products" links={productLinks} />
+        <FooterColumn title="Products" links={productLinks} hrefForAll="/products" />
         <div>
           <h2 className="footer-title">Contact</h2>
           <div className="space-y-4 text-sm text-white/62">
             <p className="flex gap-3"><MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" /> PAL ENTERPRISE, Mfg. BRASS INTERNAL FITTINGS, Plot no 706, Raj Marg, GIDC Phase-2, Dared, Jamnagar - 361005, Gujarat, India</p>
-            <p className="flex gap-3"><Phone className="mt-1 h-4 w-4 shrink-0 text-gold" /> Prakash N. Vadodaria: +91 96019 51034<br />Ashok N. Vadodaria: +91 99798 80328</p>
-            <p className="flex gap-3"><Mail className="mt-1 h-4 w-4 shrink-0 text-gold" /> palenterprise188@gmail.com</p>
+            <p className="flex gap-3"><Phone className="mt-1 h-4 w-4 shrink-0 text-gold" /> India: +91 95378 43995<br />International: +91 94080 78888</p>
+            <p className="flex gap-3"><Mail className="mt-1 h-4 w-4 shrink-0 text-gold" /> info@petrelbathfitting.com<br />export@petrelbathfitting.com</p>
           </div>
         </div>
       </div>
@@ -79,14 +79,14 @@ function LinkedinIcon() {
   );
 }
 
-function FooterColumn({ title, links }: Readonly<{ title: string; links: string[] }>) {
+function FooterColumn({ title, links, hrefForAll }: Readonly<{ title: string; links: string[]; hrefForAll?: string }>) {
   return (
     <div>
       <h2 className="footer-title">{title}</h2>
       <div className="space-y-3">
         {links.map((link) => (
           <Link
-            href={link === "Products" ? "/products" : link === "Catalogue" ? "/catalogue" : link === "Contact" ? "/contact" : link === "Gallery" ? "/gallery" : link === "Testimonials" ? "/testimonials" : link === "About" ? "/about" : "#"}
+            href={hrefForAll ?? (link === "Products" ? "/products" : link === "Catalogue" ? "/catalogue" : link === "Contact" ? "/contact" : link === "Gallery" ? "/gallery" : link === "Testimonials" ? "/testimonials" : link === "About" ? "/about" : "#")}
             className="block text-sm text-white/62 transition hover:text-gold"
             key={link}
           >

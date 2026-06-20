@@ -59,9 +59,6 @@ export default function HomePage() {
               <div className="absolute -left-10 top-10 h-28 w-28 rounded-full bg-gold/14 blur-3xl" />
               <div className="absolute -right-8 bottom-12 h-32 w-32 rounded-full bg-secondary/18 blur-3xl" />
               <div className="relative overflow-hidden rounded-[1.1rem] bg-gradient-to-br from-white/[0.13] to-white/[0.035]">
-                <div className="absolute left-6 top-5 text-[10px] uppercase tracking-[0.22em] text-white/42">
-                  <span>Petrel Signature</span>
-                </div>
                 <div className="hero-product-stage">
                   {["home300x400.png", "contact-440x390-1.png", "p1-1.png"].map((image) => (
                     <img src={`/assets/${image}`} alt="Petrel luxury bathroom component" className="hero-product-slide" key={image} />

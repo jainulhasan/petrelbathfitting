@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight, BadgeCheck } from "lucide-react";
+import Link from "next/link";
 import { motion, Reveal } from "@/components/Motion";
 import { products } from "@/lib/siteData";
 
@@ -25,8 +26,7 @@ export default function ProductShowcase() {
             whileHover={{ y: -3, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }}
           >
             <div className="relative border-b border-primary/8 px-5 py-4">
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary/42">Petrel {String(index + 1).padStart(2, "0")}</span>
+              <div className="flex items-center justify-end gap-4">
                 <span className="rounded-full border border-gold/30 bg-gold/8 px-3 py-1 text-[11px] font-semibold text-primary">{product.category}</span>
               </div>
             </div>
@@ -42,9 +42,9 @@ export default function ProductShowcase() {
               </div>
               <h3 className="text-xl font-semibold tracking-tight text-primary">{product.title}</h3>
               <p className="mt-3 min-h-18 text-sm leading-7 text-black/58">{product.description}</p>
-              <button className="transition-luxury mt-5 inline-flex items-center gap-2 border-b border-gold/45 pb-1 text-sm font-bold text-primary hover:border-primary hover:text-secondary">
+              <Link href="/products" className="transition-luxury mt-5 inline-flex items-center gap-2 border-b border-gold/45 pb-1 text-sm font-bold text-primary hover:border-primary hover:text-secondary">
                 View specifications <ArrowUpRight className="h-4 w-4 text-gold transition-luxury group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </button>
+              </Link>
             </div>
           </motion.article>
         ))}

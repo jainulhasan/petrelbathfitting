@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Factory, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Eye, Factory, Gem, ShieldCheck, Target, Trophy } from "lucide-react";
 import { Reveal } from "@/components/Motion";
 import { aboutContent, process, stats, whyChooseUs } from "@/lib/siteData";
 
@@ -7,6 +7,44 @@ export const metadata: Metadata = {
   title: "About",
   description: "Petrel's manufacturing story, quality discipline, and premium brass fittings capability."
 };
+
+const aboutOverview = [
+  {
+    id: "why-us",
+    title: "Why us",
+    eyebrow: "Reliable manufacturing partner",
+    copy: "Petrel combines brass manufacturing experience, practical product value, and dependable supply for dealers, builders, export buyers, and OEM partners.",
+    icon: Trophy
+  },
+  {
+    id: "our-mission",
+    title: "Our mission",
+    eyebrow: "Highest quality and value",
+    copy: "Our mission is to provide bathroom fittings and accessories with strong quality, creative design, exceptional value, and customer-focused support.",
+    icon: Target
+  },
+  {
+    id: "our-quality",
+    title: "Our quality",
+    eyebrow: "Checked at every stage",
+    copy: "Each production stage is supported by quality control discipline so Petrel products meet brand expectations for performance, finish, and reliability.",
+    icon: Gem
+  },
+  {
+    id: "our-vision",
+    title: "Our vision",
+    eyebrow: "India and global markets",
+    copy: "We aim to grow Petrel as a trusted premium bath fittings brand across India and outside India through consistency, innovation, and manufacturing excellence.",
+    icon: Eye
+  },
+  {
+    id: "certificates",
+    title: "Certificates",
+    eyebrow: "Trust and credibility",
+    copy: "Petrel maintains a quality-first manufacturing approach and supports professional buyers with dependable product information and documentation.",
+    icon: BadgeCheck
+  }
+];
 
 export default function AboutPage() {
   return (
@@ -19,7 +57,7 @@ export default function AboutPage() {
           <h1 className="heading-xl mt-4">Precision manufacturing with a premium market mindset.</h1>
         </div>
       </section>
-      <section className="section-shell section-padding grid gap-10 lg:grid-cols-2 lg:items-center">
+      <section id="who-we-are" className="section-shell section-padding scroll-mt-24 grid gap-10 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <img src="/assets/petrelbathfitting.jpg" alt="Petrel premium product" className="h-[500px] w-full rounded-[1.5rem] object-cover shadow-luxury" />
         </Reveal>
@@ -41,6 +79,23 @@ export default function AboutPage() {
             ))}
           </div>
         </Reveal>
+      </section>
+      <section className="section-shell pb-18 md:pb-20">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          {aboutOverview.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <Reveal delay={index * 0.04} key={item.id}>
+                <article id={item.id} className="elegant-card scroll-mt-28 rounded-[1.25rem] p-5">
+                  <Icon className="h-8 w-8 text-gold" />
+                  <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.2em] text-black/38">{item.eyebrow}</p>
+                  <h2 className="mt-3 text-2xl font-semibold tracking-tight text-primary">{item.title}</h2>
+                  <p className="mt-3 text-sm leading-7 text-black/58">{item.copy}</p>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
       </section>
       <section className="bg-primary py-18 text-white md:py-20">
         <div className="section-shell">

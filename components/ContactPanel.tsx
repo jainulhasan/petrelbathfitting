@@ -11,8 +11,10 @@ export default function ContactPanel() {
           <p className="mt-5 text-white/62">For dealer enquiries, OEM projects, export discussions, and architectural specifications, connect with the Petrel team.</p>
           <div className="mt-7 grid gap-3">
             <Info icon={<MapPin />} title="Location" value="Pal Enterprise, India" />
-            <Info icon={<Phone />} title="Phone" value="Sales & project enquiries" />
+            <Info icon={<Phone />} title="India" value="+91 95378 43995" />
+            <Info icon={<Phone />} title="International" value="+91 94080 78888" />
             <Info icon={<Mail />} title="Email" value="info@petrelbathfitting.com" />
+            <Info icon={<Mail />} title="Export Email" value="export@petrelbathfitting.com" />
           </div>
           <div className="mt-8 h-64 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
             <iframe
@@ -29,7 +31,7 @@ export default function ContactPanel() {
             <div className="grid gap-4 md:grid-cols-2">
               <Field label="Name" placeholder="Your name" />
               <Field label="Email" placeholder="you@company.com" type="email" />
-              <Field label="Phone" placeholder="Phone number" />
+              <Field label="Phone" placeholder="+91 Phone number" type="tel" />
               <Field label="Company" placeholder="Company name" />
             </div>
             <label className="grid gap-2 text-sm font-semibold text-primary">

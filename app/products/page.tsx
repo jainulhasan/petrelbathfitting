@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProductShowcase from "@/components/ProductShowcase";
+import ProductCatalogue from "@/components/ProductCatalogue";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -18,7 +18,7 @@ export default function ProductsPage() {
           <p className="body-lg mt-6 max-w-2xl text-white/68">Explore high-performance product families designed for architects, builders, dealers, export buyers, and OEM manufacturing partners.</p>
         </div>
       </section>
-      <ProductShowcase />
+      <ProductCatalogue />
     </>
   );
 }
