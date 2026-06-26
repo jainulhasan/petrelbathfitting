@@ -59,7 +59,17 @@ export default function AboutPage() {
       </section>
       <section id="who-we-are" className="section-shell section-padding scroll-mt-24 grid gap-10 lg:grid-cols-2 lg:items-center">
         <Reveal>
-          <img src="/assets/petrelbathfitting.jpg" alt="Petrel premium product" className="h-[500px] w-full rounded-[1.5rem] object-cover shadow-luxury" />
+          <div>
+            <img src="/assets/petrelbathfitting.jpg" alt="Petrel premium product" className="h-[500px] w-full rounded-[1.5rem] object-cover shadow-luxury" />
+            <div className="mt-7 grid grid-cols-2 gap-3">
+              {stats.map((stat) => (
+                <div className="elegant-card rounded-2xl p-4" key={stat.label}>
+                  <strong className="text-3xl font-semibold text-primary">{stat.value}{stat.suffix}</strong>
+                  <span className="mt-2 block text-xs uppercase tracking-[0.16em] text-black/45">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </Reveal>
         <Reveal delay={0.12}>
           <Factory className="h-12 w-12 text-gold" />
@@ -68,14 +78,6 @@ export default function AboutPage() {
           <div className="mt-5 space-y-4 text-base leading-8 text-black/62">
             {aboutContent.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <div className="mt-7 grid grid-cols-2 gap-3">
-            {stats.map((stat) => (
-              <div className="elegant-card rounded-2xl p-4" key={stat.label}>
-                <strong className="text-3xl font-semibold text-primary">{stat.value}{stat.suffix}</strong>
-                <span className="mt-2 block text-xs uppercase tracking-[0.16em] text-black/45">{stat.label}</span>
-              </div>
             ))}
           </div>
         </Reveal>

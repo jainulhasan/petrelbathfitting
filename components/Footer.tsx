@@ -34,7 +34,7 @@ export default function Footer() {
         <div>
           <h2 className="footer-title">Contact</h2>
           <div className="space-y-4 text-sm text-white/62">
-            <p className="flex gap-3"><MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" /> PAL ENTERPRISE, Mfg. BRASS INTERNAL FITTINGS, Plot no 706, Raj Marg, GIDC Phase-2, Dared, Jamnagar - 361005, Gujarat, India</p>
+            <p className="flex gap-3"><MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" /> PAL ENTERPRISE, Mfg. BRASS INTERNAL FITTINGS, Plot no 706/707, Raj Marg, GIDC Phase-2, Dared, Jamnagar - 361005, Gujarat, India</p>
             <p className="flex gap-3"><Phone className="mt-1 h-4 w-4 shrink-0 text-gold" /> India: +91 95378 43995<br />International: +91 94080 78888</p>
             <p className="flex gap-3"><Mail className="mt-1 h-4 w-4 shrink-0 text-gold" /> info@petrelbathfitting.com<br />export@petrelbathfitting.com</p>
           </div>

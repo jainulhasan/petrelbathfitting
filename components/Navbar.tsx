@@ -3,14 +3,15 @@
 import clsx from "clsx";
 import { ChevronDown, Download, Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const nav = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/about", label: "About Us", menu: "about" },
-  { href: "/#industries", label: "Industries" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/catalogue", label: "Catalogue" },
   { href: "/contact", label: "Contact" }
 ];
@@ -25,9 +26,16 @@ const aboutLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dismissedMenu, setDismissedMenu] = useState<string | null>(null);
+
+  const isActive = (href: string) => {
+    const path = href.split("#")[0];
+    if (path === "/") return pathname === "/";
+    return pathname === path || pathname.startsWith(`${path}/`);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 18);
@@ -40,23 +48,32 @@ export default function Navbar() {
     <header
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled ? "border-b border-primary/10 bg-white/82 shadow-xl shadow-primary/10 backdrop-blur-2xl" : "bg-transparent"
+        scrolled ? "border-b border-primary/8 bg-white/90 shadow-lg shadow-primary/8 backdrop-blur-2xl" : "border-b border-white/8 bg-slate-950/22 backdrop-blur-xl"
       )}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 md:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
         <Link href="/" className="group flex items-center gap-3" aria-label="Petrel home">
           <img src="/assets/logo.png" alt="Petrel Bath Fittings" className="h-9 w-auto transition group-hover:opacity-80" />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((item) => (
-            <div className="group relative py-3" key={item.label} onMouseLeave={() => setDismissedMenu(null)}>
+        <nav className="hidden items-center gap-5 lg:flex">
+          {nav.map((item) => {
+            const active = isActive(item.href);
+            return (
+            <div className="group relative py-5" key={item.label} onMouseLeave={() => setDismissedMenu(null)}>
               <Link
                 href={item.href}
                 className={clsx(
-                  "flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium transition",
-                  scrolled ? "text-primary/72 hover:bg-primary/5 hover:text-primary" : "text-white/78 hover:bg-white/10 hover:text-white"
+                  "nav-link flex items-center gap-1 text-[12px] font-semibold uppercase tracking-[0.1em] transition",
+                  scrolled
+                    ? active
+                      ? "is-active text-primary"
+                      : "text-primary/68 hover:text-primary"
+                    : active
+                      ? "is-active text-gold"
+                      : "text-white/76 drop-shadow-sm hover:text-white"
                 )}
+                aria-current={active ? "page" : undefined}
               >
                 {item.label}
                 {item.menu ? <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" /> : null}
@@ -79,26 +96,32 @@ export default function Navbar() {
                 </div>
               ) : null}
             </div>
-          ))}
+          );
+          })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <Link href="/catalogue" className="btn-gold">
             <Download className="h-4 w-4" />
             Download Catalogue
           </Link>
         </div>
 
-        <button className={clsx("rounded-full border p-2 lg:hidden", scrolled ? "border-primary/10 text-primary" : "border-white/15 text-white")} onClick={() => setOpen((value) => !value)} aria-label="Toggle menu">
+        <button className={clsx("rounded-full border p-2 shadow-lg backdrop-blur-xl lg:hidden", scrolled ? "border-primary/10 bg-white/72 text-primary" : "border-white/20 bg-slate-950/40 text-white")} onClick={() => setOpen((value) => !value)} aria-label="Toggle menu">
           {open ? <X /> : <Menu />}
         </button>
       </div>
 
-      <div className={clsx("grid overflow-hidden bg-slate-950/95 px-5 text-white backdrop-blur-2xl transition-all duration-500 lg:hidden", open ? "grid-rows-[1fr] border-t border-white/10 py-5" : "grid-rows-[0fr] py-0")}>
-        <nav className="min-h-0 space-y-2 overflow-hidden">
+      <div className={clsx("bg-slate-950/95 px-5 text-white backdrop-blur-2xl transition-all duration-500 lg:hidden", open ? "max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-white/10 py-5 pb-8" : "max-h-0 overflow-hidden py-0")}>
+        <nav className="space-y-2">
           {nav.map((item) => (
             <div key={item.label}>
-              <Link href={item.href} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-white/82 hover:bg-white/10">
+              <Link
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={clsx("block rounded-2xl px-4 py-3 transition hover:bg-white/10", isActive(item.href) ? "bg-white text-primary" : "text-white/82")}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
                 {item.label}
               </Link>
               {item.menu === "about" ? (

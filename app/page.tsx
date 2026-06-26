@@ -10,10 +10,10 @@ import { aboutContent, gallery, industries, partnerLogos, process, stats, trustS
 export default function HomePage() {
   return (
     <>
-      <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-[#071427] text-white">
+      <section className="relative flex min-h-[98vh] items-end overflow-hidden bg-[#071427] text-white">
         <div className="absolute inset-0">
-          <img src="/assets/pal-banner.jpg" alt="Premium brass bath fittings showcase" className="hero-bg-image hero-bg-drift h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,10,22,0.94),rgba(11,31,58,0.74)_46%,rgba(3,10,22,0.36)),linear-gradient(0deg,rgba(3,10,22,0.96),rgba(3,10,22,0.18)_58%,rgba(3,10,22,0.72))]" />
+          <img src="/assets/hero-petrel-catalogue-2026.png" alt="Petrel spanning across a vast area" className="hero-bg-image hero-bg-drift h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,10,22,0.7),rgba(11,31,58,0.44)_42%,rgba(3,10,22,0.1)_76%),linear-gradient(0deg,rgba(3,10,22,0.6),rgba(3,10,22,0.08)_58%,rgba(3,10,22,0.24))]" />
           <div className="hero-light-sweep absolute inset-0" />
           <div className="hero-precision-grid absolute inset-0" />
           <div className="hero-gold-scan absolute inset-x-0 top-0" />
@@ -24,16 +24,16 @@ export default function HomePage() {
           <Factory className="h-7 w-7 text-gold" />
         </div>
         <div className="section-shell relative z-10 grid gap-9 pb-12 pt-28 lg:grid-cols-[1fr_0.68fr] lg:items-end">
-          <Reveal>
+          <Reveal className="hero-copy">
             <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-12 bg-gold" />
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-white/62">Premium brass manufacturing</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-white/82">BATH FITTING SOLUTIONS</span>
             </div>
             <h1 className="hero-heading">
               <span className="hero-heading-line">Engineered for Precision.</span>
               <span className="hero-heading-line hero-heading-accent">Crafted for Luxury.</span>
             </h1>
-            <p className="body-lg mt-6 max-w-[34rem] text-white/70">
+            <p className="body-lg mt-6 max-w-[34rem] text-white/88">
               Premium brass bath fittings, faucet components, internal fittings, and OEM manufacturing trusted across India and global markets.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -80,15 +80,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="about-transition section-padding">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <section className="about-transition section-padding relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#071427] via-[#071427]/22 to-transparent" />
+        <div className="section-shell relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <Reveal>
-          <div className="relative">
-            <img src="/assets/company-main.jpg" alt="Petrel manufacturing facility" className="h-[560px] w-full rounded-[1.6rem] object-cover shadow-luxury" />
-            <div className="absolute -bottom-5 -right-3 rounded-[1.2rem] border border-white/50 bg-white/80 p-4 shadow-luxury backdrop-blur-xl md:-right-6">
-              <ShieldCheck className="mb-2 h-7 w-7 text-gold" />
-              <strong className="block text-lg text-primary">Quality-led production</strong>
-              <span className="text-sm text-black/55">Inspection discipline at every stage.</span>
+          <div>
+            <div className="relative">
+              <img src="/assets/company-building-no-car.png" alt="Petrel manufacturing facility" className="aspect-[3/2] h-auto w-full rounded-[1.6rem] object-cover shadow-luxury" />
+              <div className="absolute -bottom-5 -right-3 rounded-[1.2rem] border border-white/50 bg-white/80 p-4 shadow-luxury backdrop-blur-xl md:-right-6">
+                <ShieldCheck className="mb-2 h-7 w-7 text-gold" />
+                <strong className="block text-lg text-primary">Quality-led production</strong>
+                <span className="text-sm text-black/55">Inspection discipline at every stage.</span>
+              </div>
+            </div>
+            <div className="mt-9 grid grid-cols-2 gap-3">
+              {stats.map((stat) => (
+                <div className="elegant-card rounded-2xl p-4" key={stat.label}>
+                  <strong className="text-3xl font-semibold text-primary">{stat.value}{stat.suffix}</strong>
+                  <span className="mt-2 block text-xs uppercase tracking-[0.16em] text-black/45">{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </Reveal>
@@ -98,14 +109,6 @@ export default function HomePage() {
           <div className="mt-5 space-y-4 text-base leading-8 text-black/62">
             {aboutContent.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <div className="mt-7 grid grid-cols-2 gap-3">
-            {stats.map((stat) => (
-              <div className="elegant-card rounded-2xl p-4" key={stat.label}>
-                <strong className="text-3xl font-semibold text-primary">{stat.value}{stat.suffix}</strong>
-                <span className="mt-2 block text-xs uppercase tracking-[0.16em] text-black/45">{stat.label}</span>
-              </div>
             ))}
           </div>
         </Reveal>
@@ -142,6 +145,7 @@ export default function HomePage() {
         <Reveal className="mb-12">
           <p className="eyebrow">Manufacturing Excellence</p>
           <h2 className="heading-lg mt-4 max-w-4xl text-primary">A disciplined process from concept to packaged product.</h2>
+          <p className="body-lg mt-5 max-w-3xl text-black/58">High end technology in research, development and quality control.</p>
         </Reveal>
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>

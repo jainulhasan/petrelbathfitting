@@ -14,7 +14,7 @@ type GalleryItem = {
 };
 
 const manufacturingImages = [
-  "company-main.jpg",
+  "company-building-no-car.png",
   "our-comapny.jpg",
   "our-comapny1.jpg",
   "our-comapny2.jpg",

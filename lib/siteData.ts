@@ -181,7 +181,7 @@ export const productCatalogue = [
 
 export const stats = [
   { value: 20, suffix: "+", label: "Years Experience" },
-  { value: 500, suffix: "+", label: "Products" },
+  { value: 1500, suffix: "+", label: "Products" },
   { value: 1000, suffix: "+", label: "Dealer Network" },
   { value: 50, suffix: "+", label: "Cities Served" }
 ];
@@ -206,9 +206,10 @@ export const aboutContent = {
   eyebrow: "Established in 2003",
   title: "A glimpse of our company.",
   paragraphs: [
-    "Pal Enterprise resulted from the duo Patel brothers, Mr. Ashok Vadodaria and Mr. Prakash Vadodaria. For more than 20 years, the enterprise has grown as a manufacturer of bathroom fittings and accessories for residential and commercial markets.",
-    "With operations across India and outside India, Pal Enterprise provides bathroom fittings and accessories under its Petrel brand. Each stage is subjected to rigorous quality control to meet the requirements of the brand.",
-    "Our mission is to provide products of the highest quality, creative design, and exceptional value. We meet these goals through attention to detail, high-performance teams across the business, and a constant focus on customers."
+    "Pal Enterprise was founded by visionary Patel Brothers, Mr. Ashok Vadodaria and Mr. Prakash Vadodaria. For over 20 years, we have been delivering excellence in bathroom fittings and accessories. Today, we are one of the fastest-growing manufacturers in the residential and commercial space, trusted by millions of homes across India and beyond.",
+    "With a strong presence across the country, we proudly offer high-quality bathroom fittings and accessories under our Petrel brand. Every product goes through strict quality checks to ensure durability, performance, and long-lasting reliability.",
+    "At Petrel, every product is crafted with precision by skilled experts. We combine elegant design with strong functionality so you do not just get a product, you get a lasting experience. Our focus is simple: deliver premium-quality fittings that enhance everyday living while offering maximum value for money.",
+    "Our mission is to provide top-quality products, innovative design, and unmatched value. We achieve this through attention to detail, strong teams, and a constant commitment to customer satisfaction."
   ]
 };
 
@@ -269,7 +270,7 @@ export const testimonials = [
 ];
 
 export const gallery = [
-  "company-main.jpg",
+  "company-building-no-car.png",
   "our-comapny.jpg",
   "our-comapny1.jpg",
   "our-comapny2.jpg",
