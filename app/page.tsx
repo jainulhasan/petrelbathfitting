@@ -1,11 +1,11 @@
-import { ArrowDown, ArrowRight, Download, Factory, ShieldCheck } from "lucide-react";
+import { ArrowDown, ArrowRight, Award, Download, Factory, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import ContactPanel from "@/components/ContactPanel";
 import ManufacturingFilm from "@/components/ManufacturingFilm";
 import { Counter, Reveal } from "@/components/Motion";
 import ProductShowcase from "@/components/ProductShowcase";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
-import { aboutContent, gallery, industries, partnerLogos, process, stats, trustStats, whyChooseUs } from "@/lib/siteData";
+import { aboutContent, certificates, gallery, industries, newsHighlights, partnerLogos, process, stats, trustStats, whyChooseUs } from "@/lib/siteData";
 
 export default function HomePage() {
   return (
@@ -115,6 +115,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden bg-primary py-18 text-white md:py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(212,175,55,0.18),transparent_28%),radial-gradient(circle_at_82%_16%,rgba(30,77,143,0.34),transparent_34%)]" />
+        <div className="hero-precision-grid absolute inset-0 opacity-30" />
+        <div className="section-shell relative grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <Reveal>
+            <Award className="h-11 w-11 text-gold" />
+            <h2 className="heading-lg mt-5 text-white">Recognition that supports confidence in Petrel’s market relationships.</h2>
+            <p className="body-lg mt-5 text-white/64">{certificates[0].copy}</p>
+            <Link href="/events-news" className="btn-gold mt-7 w-fit">
+              View Certificates <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="grid gap-4 md:grid-cols-2">
+              {certificates.map((certificate) => (
+                <Link href="/events-news" className="group overflow-hidden rounded-[1.25rem] border border-white/12 bg-white/[0.08] p-4 shadow-2xl shadow-black/20 backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/[0.12]" key={certificate.title}>
+                  <div className="rounded-xl bg-white p-3">
+                    <img src={`/assets/${certificate.image}`} alt={certificate.title} className="h-64 w-full object-contain transition duration-700 group-hover:scale-[1.02]" />
+                  </div>
+                  <div className="p-2 pt-4">
+                    <Award className="h-7 w-7 text-gold" />
+                    <h3 className="mt-3 text-xl font-semibold text-white">{certificate.title}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <ProductShowcase />
 
       <section className="bg-[#071427] py-18 text-white md:py-20">
@@ -199,6 +229,32 @@ export default function HomePage() {
             <div className="grid h-20 w-48 place-items-center rounded-2xl border border-primary/8 bg-primary/[0.03] text-xs font-black tracking-[0.2em] text-primary/50" key={`${logo}-${index}`}>
               {logo}
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell section-padding">
+        <Reveal className="mb-9 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow">Events & News</p>
+            <h2 className="heading-lg mt-4 max-w-4xl text-primary">Business updates and event highlights from Petrel.</h2>
+          </div>
+          <Link href="/events-news" className="btn-gold w-fit">
+            View All <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Reveal>
+        <div className="grid gap-5 md:grid-cols-3">
+          {newsHighlights.slice(0, 3).map((item, index) => (
+          <Reveal delay={index * 0.06} key={item.title}>
+            <Link href="/events-news" className="elegant-card group block h-full overflow-hidden rounded-[1.35rem]">
+              <img src={`/assets/${item.image.endsWith(".mp4") ? "company-building-no-car.png" : item.image}`} alt={item.title} className="h-52 w-full object-cover transition duration-700 group-hover:scale-[1.025]" />
+              <div className="p-5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">{item.category} / {item.date}</p>
+                <h3 className="mt-3 text-xl font-semibold tracking-tight text-primary">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-black/58">{item.summary}</p>
+              </div>
+            </Link>
+          </Reveal>
           ))}
         </div>
       </section>

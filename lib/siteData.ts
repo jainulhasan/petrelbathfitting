@@ -1,6 +1,8 @@
 import {
+  Award,
   BadgeCheck,
   Building2,
+  CalendarDays,
   Factory,
   Gauge,
   Gem,
@@ -9,6 +11,7 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
+  Newspaper,
   Truck,
   Wrench
 } from "lucide-react";
@@ -228,6 +231,48 @@ export const industries = [
   { title: "Builders", icon: Wrench, copy: "Reliable supply for residential, commercial, and multi-site developments." },
   { title: "Export Buyers", icon: Globe2, copy: "OEM-friendly manufacturing for global bathware and component businesses." },
   { title: "Premium Homeowners", icon: Star, copy: "Refined fittings that elevate everyday bathroom experiences." }
+];
+
+export const certificates = [
+  {
+    title: "Authorized Distributor Certificate",
+    issuer: "Neoperl India Private Limited",
+    image: "neoperl-authorized-distributor-certificate.jpg",
+    copy: "Recognition for promoting, distributing, selling, and providing technical assistance for Neoperl water-saving products."
+  },
+  {
+    title: "Authorized Distributor Letter",
+    issuer: "Neoperl India Private Limited",
+    image: "neoperl-authorized-distributor-letter.jpg",
+    copy: "Official authorization letter confirming Pal Enterprise as an authorized dealer for Neoperl India Private Limited."
+  }
+];
+
+export const newsHighlights = [
+  {
+    title: "Business Meet: Dealer Network Expansion",
+    date: "June 2026",
+    category: "Event",
+    icon: CalendarDays,
+    image: "company-building-no-car.png",
+    summary: "A focused business interaction around product availability, dealer support, and market-ready bath fitting solutions."
+  },
+  {
+    title: "Quality & Research Capability Update",
+    date: "May 2026",
+    category: "News",
+    icon: Newspaper,
+    image: "manufacturing-film.mp4",
+    summary: "Petrel continues strengthening research, development, and quality control practices for dependable product performance."
+  },
+  {
+    title: "Neoperl Authorized Distributor Recognition",
+    date: "Authorized Distributor",
+    category: "Certificate",
+    icon: Award,
+    image: "neoperl-authorized-distributor-certificate.jpg",
+    summary: "Pal Enterprise is recognized for supporting Neoperl water-saving products through distribution and technical assistance."
+  }
 ];
 
 export const testimonials = [

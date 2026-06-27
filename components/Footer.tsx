@@ -2,11 +2,11 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
 const productLinks = ["Brass Bath Fittings", "Bathroom Accessories", "Internal Fittings", "Faucet Components", "OEM Manufacturing"];
-const quickLinks = ["About", "Products", "Catalogue", "Gallery", "Testimonials", "Contact"];
+const quickLinks = ["About", "Products", "Catalogue", "Gallery", "Events & News", "Testimonials", "Contact"];
 const socials = [
-  { href: "https://www.facebook.com/profile.php?id=61552491352668&mibextid=eHce3h", label: "Facebook", icon: FacebookIcon },
-  { href: "https://instagram.com/petrelbathfitting?igshid=MzMyNGUyNmU2YQ==", label: "Instagram", icon: InstagramIcon },
-  { href: "https://www.linkedin.com/in/petrel-india-cartridge-and-spares-03bb43356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", label: "LinkedIn", icon: LinkedinIcon }
+  { href: "https://www.facebook.com/share/1Lr8dAhH1U/", label: "Facebook", icon: FacebookIcon },
+  { href: "https://www.instagram.com/petrelbathfitting?igsh=ZnhwY204MWliZTFj", label: "Instagram", icon: InstagramIcon },
+  { href: "https://www.linkedin.com/in/petrel-india-cartridge-and-spares-03bb43356/?skipRedirect=true", label: "LinkedIn", icon: LinkedinIcon }
 ];
 
 export default function Footer() {
@@ -86,7 +86,7 @@ function FooterColumn({ title, links, hrefForAll }: Readonly<{ title: string; li
       <div className="space-y-3">
         {links.map((link) => (
           <Link
-            href={hrefForAll ?? (link === "Products" ? "/products" : link === "Catalogue" ? "/catalogue" : link === "Contact" ? "/contact" : link === "Gallery" ? "/gallery" : link === "Testimonials" ? "/testimonials" : link === "About" ? "/about" : "#")}
+            href={hrefForAll ?? (link === "Products" ? "/products" : link === "Catalogue" ? "/catalogue" : link === "Contact" ? "/contact" : link === "Gallery" ? "/gallery" : link === "Events & News" ? "/events-news" : link === "Testimonials" ? "/testimonials" : link === "About" ? "/about" : "#")}
             className="block text-sm text-white/62 transition hover:text-gold"
             key={link}
           >
